@@ -1,0 +1,16 @@
+# Sanal ortam
+ll_env/
+
+# Django migration dosyaları
+*.pyc
+__pycache__/
+
+# Gizli bilgiler
+.env
+
+# Veritabanı
+db.sqlite3
+
+# IDE dosyaları
+.vscode/
+.idea/
