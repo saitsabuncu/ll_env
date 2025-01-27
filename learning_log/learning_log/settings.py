@@ -122,7 +122,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 LOGIN_REDIRECT_URL = '/'  # Başarılı oturum açıldığında yönlendirme
-LOGOUT_REDIRECT_URL = '/login/'  # Oturum kapatıldığında yönlendirme
+LOGOUT_REDIRECT_URL = '/'  # Oturum kapatıldığında yönlendirme
 
 
 # Default primary key field type

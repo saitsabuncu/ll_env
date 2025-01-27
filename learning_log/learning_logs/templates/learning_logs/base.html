@@ -3,11 +3,17 @@
         <a href="{% url 'learning_logs:index' %}">Learning Log</a> -
         <a href="{% url 'learning_logs:topics' %}">Topics</a> - 
         {% if user.is_authenticated %}
-        Hello, {{ user.username }}!
-    <a href="{% url 'users:logout' %}">Logout</a>
+        <form method="post" action="{% url 'users:logout' %}" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit" style="background: none; border: none; color: blue; cursor: pointer;">
+                Log out
+            </button>
+        </form>
+        Hello, {{ user.username }}! 
+        
     {% else %}
-    <a href="{% url 'users:login' %}">Login</a> - 
-    <a href="{% url 'users:register' %}">Register</a>
+        <a href="{% url 'users:login' %}">Login</a> - 
+        <a href="{% url 'users:register' %}">Register</a>
     {% endif %}
     </p>
     {% block content %}{% endblock content %}
