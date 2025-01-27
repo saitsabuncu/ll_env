@@ -1,3 +1,4 @@
+"""Kullanıcılar için URL örüntüleini tanımlar"""
 from django.urls import path, include
 
 app_name = 'users'
