@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     #Uygulamalarım
     'learning_logs',
+    'users',  # Yeni eklenen uygulama
     #Varsayılan django uygulamaları.
     'django.contrib.admin',
     'django.contrib.auth',
