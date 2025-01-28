@@ -1,10 +1,12 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Topic(models.Model):
     """ Kullanıcıların öğrenmekte olduğu bir konu."""
     text=models.CharField(max_length=200)
-    date_add=models.DateTimeField(auto_now_add=True) # Alan adı date_added olarak değiştirildi
+    date_add=models.DateTimeField(auto_now_add=True) # Alan adı date_add olarak değiştirildi
+    owner=models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         """Modelin dizgi gösterimini döndür."""

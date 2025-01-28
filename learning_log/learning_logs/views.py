@@ -15,7 +15,7 @@ def topics(request):
     context = {'topics': topics}
     return render(request, 'learning_logs/topics.html', context)
 
-
+@login_required
 def topic(request, topic_id):
     """Belirli bir konuyu ve ilişkili girdileri göster."""
     topic = get_object_or_404(Topic, id=topic_id)
@@ -23,6 +23,7 @@ def topic(request, topic_id):
     context = {'topic': topic, 'entries': entries}
     return render(request, 'learning_logs/topic.html', context)
 
+@login_required
 def new_topic(request):
     """Yeni bir konu oluştur."""
     if request.method != 'POST':
@@ -38,7 +39,7 @@ def new_topic(request):
     context = {'form': form}
     return render(request, 'learning_logs/new_topic.html', context)
 
-
+@login_required
 def new_entry(request, topic_id):
     topic=Topic.objects.get(id=topic_id)
     if request.method != 'POST':
@@ -53,6 +54,7 @@ def new_entry(request, topic_id):
     context={'topic': topic, 'form': form}
     return render(request, 'learning_logs/new_entry.html', context)
 
+@login_required
 def edit_entry(request, entry_id):
     """Var olan bir girdiyi düzenle."""
     entry = get_object_or_404(Entry, id=entry_id)
