@@ -34,6 +34,8 @@ INSTALLED_APPS = [
     #Uygulamalarım
     'learning_logs',
     'users',  # Yeni eklenen uygulama
+    # Üçüncü Parti uygulamaları
+    'bootstrap4'
     #Varsayılan django uygulamaları.
     'django.contrib.admin',
     'django.contrib.auth',
