@@ -129,3 +129,6 @@ LOGOUT_REDIRECT_URL = '/'  # Oturum kapatıldığında yönlendirme
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Ayarlarım
+LOGİN_URL = '/users/login/'

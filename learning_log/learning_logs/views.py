@@ -1,14 +1,17 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Entry, Topic
 from .forms import TopicForm, EntryForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def index(request):
     """Learning Log için ana sayfa"""
     return render(request, 'learning_logs/index.html')
 
+@login_required
 def topics(request):
-    topics = Topic.objects.order_by('date_added')
+    """Bütün konuları göster."""
+    topics = Topic.objects.order_by('date_add')
     context = {'topics': topics}
     return render(request, 'learning_logs/topics.html', context)
 

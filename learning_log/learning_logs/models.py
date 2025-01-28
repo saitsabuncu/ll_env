@@ -4,7 +4,7 @@ from django.db import models
 class Topic(models.Model):
     """ Kullanıcıların öğrenmekte olduğu bir konu."""
     text=models.CharField(max_length=200)
-    date_add=models.DateTimeField(auto_now_add=True)
+    date_add=models.DateTimeField(auto_now_add=True) # Alan adı date_added olarak değiştirildi
 
     def __str__(self):
         """Modelin dizgi gösterimini döndür."""

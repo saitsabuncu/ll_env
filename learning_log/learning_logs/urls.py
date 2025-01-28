@@ -8,6 +8,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     #Bütün konuları gösteren sayfa.
     path('topics/', views.topics, name='topics'),
+    path('Topics/', views.topics, name='topics_capital'),  # Büyük harfli yönlendirme
     #tek bir konu için ayrıntı sayfası.
     path('topics/<int:topic_id>/', views.topic, name='topic'),
     #Yeni Konu eklemek için olan sayfa
