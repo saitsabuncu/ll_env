@@ -16,9 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings  # settings modülünü import ettik
+from django.conf.urls.static import static  # static fonksiyonunu import ettik
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('users.urls')),  # users uygulamasının URL'leri
     path('', include('learning_logs.urls')),
 ]
+
+# Statik dosyaları geliştirme sırasında sunmak için
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
