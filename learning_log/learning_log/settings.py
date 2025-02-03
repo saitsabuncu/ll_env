@@ -28,7 +28,7 @@ SECRET_KEY = getenv("SECRET_KEY")
 DEBUG = getenv("IS_DEVELOPMENT", True)
 
 ALLOWED_HOSTS = [
-    getenv("APP_HOST")
+    getenv('calm-wildwood-43710.herokuapp.com')
 ]
 
 
@@ -145,3 +145,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Ayarlarım
 LOGİN_URL = '/users/login/'
+
+import django_heroku as dj
+dj.settings(locals())
