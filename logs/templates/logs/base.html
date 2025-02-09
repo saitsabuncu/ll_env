@@ -11,9 +11,14 @@
             <ul>
                 <li><a href="{% url 'logs:topics' %}">Konular</a></li>
                 {% if user.is_authenticated %}
-                    <li><a href="{% url 'users:logout' %}">Çıkış Yap</a></li>
+                    <li>
+                        <form action="{% url 'logout' %}" method="post" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" style="background:none; border:none; color:blue; cursor:pointer;">Çıkış Yap</button>
+                        </form>
+                    </li>
                 {% else %}
-                    <li><a href="{% url 'users:login' %}">Giriş Yap</a></li>
+                    <li><a href="{% url 'login' %}">Giriş Yap</a></li>
                     <li><a href="{% url 'users:register' %}">Kayıt Ol</a></li>
                 {% endif %}
             </ul>
