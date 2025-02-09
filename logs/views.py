@@ -1,20 +1,27 @@
 from django.shortcuts import render, redirect
 from .models import Topic, Entry
 from .forms import TopicForm, EntryForm
+from django.contrib.auth.decorators import login_required  # Kullanıcı girişini zorunlu kılar
+from django.http import Http404
 
 def index(request):
     """Ana sayfa"""
     return render(request, 'logs/index.html')
 
+@login_required
 def topics(request):
     """Tüm konuları listeleyen sayfa"""
-    topics = Topic.objects.order_by('-date_added')  # Konuları tarihe göre sırala
+    topics = Topic.objects.filter(owner=request.user).order_by('-date_added')
     context = {'topics': topics}
     return render(request, 'logs/topics.html', context)
 
+@login_required
 def topic(request, topic_id):
     """Belirli bir konunun girişlerini listeleyen sayfa"""
     topic = Topic.objects.get(id=topic_id)
+    # Eğer konu başkasına aitse, 404 hatası döndür
+    if topic.owner != request.user:
+        raise Http404
     entries = topic.entry_set.order_by('-date_added')
     context = {'topic': topic, 'entries': entries}
     return render(request, 'logs/topic.html', context)
