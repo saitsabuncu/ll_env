@@ -19,6 +19,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('users/', include('users.urls')),  # Kullanıcı kaydı için
     path('users/', include('django.contrib.auth.urls')),  # Kullanıcı yönetimi için
-    path('', include('logs.urls')),  # logs uygulamasının URL'lerini dahil et
+    path('', include('logs.urls')),
 ]

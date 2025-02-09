@@ -1,16 +1,13 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <title>Yeni Günlük Girişi</title>
-</head>
-<body>
-    <h1>{{ topic.title }} İçin Yeni Giriş Ekle</h1>
+{% extends "logs/base.html" %}
+
+{% block title %}Yeni Günlük Girişi{% endblock %}
+
+{% block content %}
+    <h2>{{ topic.title }} İçin Yeni Giriş Ekle</h2>
     <form action="{% url 'logs:new_entry' topic.id %}" method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Girişi Kaydet</button>
     </form>
     <a href="{% url 'logs:topic' topic.id %}">Konuya Geri Dön</a>
-</body>
-</html>
+{% endblock %}

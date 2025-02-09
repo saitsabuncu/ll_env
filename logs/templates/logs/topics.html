@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <title>Konular</title>
-</head>
-<body>
-    <h1>Konular</h1>
+{% extends "logs/base.html" %}
+
+{% block title %}Konular{% endblock %}
+
+{% block content %}
+    <h2>Konular</h2>
     <ul>
         {% for topic in topics %}
             <li><a href="{% url 'logs:topic' topic.id %}">{{ topic.title }}</a></li>
@@ -13,7 +11,5 @@
             <li>Henüz konu eklenmemiş.</li>
         {% endfor %}
     </ul>
-    <a href="{% url 'logs:index' %}">Ana Sayfaya Dön</a>
     <a href="{% url 'logs:new_topic' %}">Yeni Konu Ekle</a>
-</body>
-</html>
+{% endblock %}

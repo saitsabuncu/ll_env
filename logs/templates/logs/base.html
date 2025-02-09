@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Learning Log{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1><a href="{% url 'logs:index' %}">Learning Log</a></h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'logs:topics' %}">Konular</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'users:logout' %}">Çıkış Yap</a></li>
+                {% else %}
+                    <li><a href="{% url 'users:login' %}">Giriş Yap</a></li>
+                    <li><a href="{% url 'users:register' %}">Kayıt Ol</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Learning Log</p>
+    </footer>
+</body>
+</html>

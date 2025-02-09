@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <title>Learning Log</title>
-</head>
-<body>
-    <h1>Learning Log'a Hoş Geldiniz</h1>
+{% extends "logs/base.html" %}
+
+{% block title %}Ana Sayfa - Learning Log{% endblock %}
+
+{% block content %}
+    <h2>Learning Log'a Hoş Geldiniz</h2>
     <p><a href="{% url 'logs:topics' %}">Konularınızı Görüntüleyin</a></p>
-</body>
-</html>
+{% endblock %}
