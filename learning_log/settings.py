@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Yeni eklenen uygulamalar
     'logs',  # Günlük kayıtlarını tutacağımız uygulama
-    'users',
+    'users',  # Kullanıcı kayıt uygulaması
     'rest_framework',  # API geliştirmek için
 ]
 

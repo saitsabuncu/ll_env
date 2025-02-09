@@ -1,16 +1,13 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <title>Kayıt Ol</title>
-</head>
-<body>
-    <h1>Yeni Kullanıcı Kaydı</h1>
+{% extends "logs/base.html" %}
+
+{% block title %}Kayıt Ol{% endblock %}
+
+{% block content %}
+    <h2>Yeni Kullanıcı Kaydı</h2>
     <form action="{% url 'users:register' %}" method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Kayıt Ol</button>
     </form>
     <a href="{% url 'logs:index' %}">Ana Sayfaya Dön</a>
-</body>
-</html>
+{% endblock %}
