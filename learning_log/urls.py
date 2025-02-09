@@ -19,7 +19,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('users/', include('users.urls')),  # Kullanıcı kayıt ve giriş işlemleri için
-    path('users/', include('django.contrib.auth.urls')),  # Django'nun auth sistemini dahil et
-    path('', include('logs.urls')),
+    path('users/', include('users.urls', namespace='users')),  # Kullanıcı işlemleri
+    path('', include('logs.urls', namespace='logs')),  # Log işlemleri
 ]

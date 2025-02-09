@@ -28,15 +28,18 @@ def topic(request, topic_id):
     context = {'topic': topic, 'entries': entries}
     return render(request, 'logs/topic.html', context)
 
+@login_required
 def new_topic(request):
     """Yeni bir konu ekleme"""
     if request.method != 'POST':
-        form = TopicForm()  # Boş form göster
+        form = TopicForm()
     else:
         form = TopicForm(data=request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('logs:topics')  # Konular listesine yönlendir
+            new_topic = form.save(commit=False)
+            new_topic.owner = request.user  # Owner olarak giriş yapan kullanıcıyı ata
+            new_topic.save()
+            return redirect('logs:topics')
 
     context = {'form': form}
     return render(request, 'logs/new_topic.html', context)

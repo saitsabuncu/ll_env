@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 
-app_name = 'logs'  # URL isimlendirmesi için
+app_name = 'logs'  # Namespace ekledik
 
 urlpatterns = [
     path('', views.index, name='index'),  # Ana sayfa
