@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Yeni Konu</title>
+</head>
+<body>
+    <h1>Yeni Konu Ekle</h1>
+    <form action="{% url 'logs:new_topic' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Konu Ekle</button>
+    </form>
+    <a href="{% url 'logs:topics' %}">Konulara Dön</a>
+</body>
+</html>

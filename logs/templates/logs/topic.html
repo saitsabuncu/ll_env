@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ topic.title }}</title>
+</head>
+<body>
+    <h1>{{ topic.title }}</h1>
+    <ul>
+        {% for entry in entries %}
+            <li>{{ entry.text }} ({{ entry.date_added }})</li>
+        {% empty %}
+            <li>Henüz giriş eklenmemiş.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'logs:topics' %}">Konulara Geri Dön</a>
+    <a href="{% url 'logs:new_entry' topic.id %}">Yeni Giriş Ekle</a>
+
+</body>
+</html>
